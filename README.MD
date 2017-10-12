@@ -1,22 +1,21 @@
-#Hacktivpress
+Hacktivpress
+======
 
-***
-###Deskripsi
-***
+
+Deskripsi
+======
 Ini Livecode buat blog dalam 4 jam pengerjaan client and server side
 
-======
 
-###Usage
-***
-####Server
+Usage
+======
+###Server
 ..* nodemon app.js
 
-####Client
+###Client
 ..* npm run dev
 
-======
-###API
+API
 ======
 |Endpoint----|method|Access|
 |------------|:----:|------|
