@@ -19,7 +19,7 @@ export default {
   },
   methods: {
     onSignInSuccess (response) {
-      console.log(response);
+      console.log(response)
     },
     onSignInError (error) {
       console.log('OH NOES', error)

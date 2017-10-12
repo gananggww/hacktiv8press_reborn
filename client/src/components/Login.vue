@@ -1,5 +1,6 @@
 <template>
   <div class="ui container">
+    <h1>LOGIn</h1>
     <Buttonfb/>
   </div>
 </template>
