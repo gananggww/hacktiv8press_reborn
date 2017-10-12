@@ -8,36 +8,52 @@ const http = axios.create({
   baseURL: `http://localhost:3000`
 })
 
-const State = {
-
+const state = {
+  articles: []
 }
 
-const Getters = {
+const getters = {
 
 }
-const Mutations = {
-
+const mutations = {
+  setPostArticle (state, payload) {
+    state.articles.unshift(payload)
+  },
+  setArticles (state, payload) {
+    state.articles = payload
+  }
 }
 
-const Actions = {
+const actions = {
   postArticle (context, payload) {
     http.post('/', {
       title: payload.title,
       content: payload.content,
       mini_content: payload.mini_content,
       category: payload.category
+    }, {
+      headers: {
+        fbaccesstoken: localStorage.getItem('token')
+      }
     })
     .then(response => {
-      context.commit('setPostArticle')
+      console.log(response)
+      context.commit('setPostArticle', response)
+    })
+  },
+  getArticles (context, payload) {
+    http.get('/')
+    .then(response => {
+      context.commit('setArticles', response)
     })
   }
 }
 
 const store = new vuex.Store({
-  State,
-  Getters,
-  Mutations,
-  Actions
+  state,
+  getters,
+  mutations,
+  actions
 })
 
 export default store

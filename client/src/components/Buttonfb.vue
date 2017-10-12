@@ -31,8 +31,8 @@ export default {
         })
         .then(loug => {
           console.log(loug)
-          localStorage.setItem('token', loug.data.token)
           this.$router.push('/')
+          localStorage.setItem('token', loug.data.token)
         })
         .catch(err => {
           console.log(err)
