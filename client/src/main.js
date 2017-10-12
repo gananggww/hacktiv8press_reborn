@@ -7,8 +7,8 @@ import vuex from 'vuex'
 import store from './vuex/store'
 import FBSignInButton from 'vue-facebook-signin-button'
 
-Vue.use(FBSignInButton)
 Vue.use(vuex)
+Vue.use(FBSignInButton)
 
 Vue.config.productionTip = false
 

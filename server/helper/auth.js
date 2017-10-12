@@ -5,7 +5,7 @@ const authGan = (req, res, next) => {
     next()
   }
   else {
-    res.send("login dong")
+    res.send("login dong!")
   }
 }
 

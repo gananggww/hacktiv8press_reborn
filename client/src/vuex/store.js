@@ -8,7 +8,6 @@ vue.use(vuex)
 //   baseURL: `http://localhost:3000`
 // })
 
-
 const State = {
 
 }
@@ -30,3 +29,5 @@ const store = new vuex.Store({
   Mutations,
   Actions
 })
+
+export default store

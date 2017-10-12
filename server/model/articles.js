@@ -5,6 +5,7 @@ const articlesSchema = new mongoose.Schema({
   content: String,
   mini_content: String,
   pic: String,
+  category: String,
   author: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'users'

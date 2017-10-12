@@ -1,5 +1,4 @@
 const db = require('../model/articles')
-const jwt = require('jsonwebtoken')
 
 const getall = (req, res) => {
   db.find().populate('user')
@@ -17,6 +16,7 @@ const create = (req, res) => {
     content: req.body.content,
     mini_content: req.body.mini_content,
     pic: req.body.pic,
+    category: req.body.category,
     user: req.headers.ganang.id
   })
   .then(response => {
@@ -29,6 +29,16 @@ const create = (req, res) => {
 
 const getself = (req, res) => {
   db.find({author: req.headers.ganang.id}).populate('user')
+  .then(response => {
+    res.send(response)
+  })
+  .catch(err => {
+    res.send(err)
+  })
+}
+
+const getcategory = (req, res) => {
+  db.find({category: req.params.category}).populate('user')
   .then(response => {
     res.send(response)
   })
@@ -52,6 +62,7 @@ const edit = (req, res) => {
     title: req.body.title,
     content: req.body.content,
     mini_content: req.body.mini_content,
+    category: req.body.category,
     pic: req.body.pic,
   })
   .then(response => {
@@ -65,7 +76,8 @@ const edit = (req, res) => {
 module.exports = {
   getall,
   create,
-  getself,
+  getcategory,
   remove,
-  edit
+  edit,
+  getself
 }

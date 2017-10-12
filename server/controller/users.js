@@ -33,7 +33,7 @@ const login = (req, res) => {
           email: result[0].email,
           name: result[0].name
         }
-        var token = jwt.sign(siapBungkus, 'apaaa')
+        var token = jwt.sign(siapBungkus, 'livecode')
         console.log('tokennya', token);
         res.send({token: token, name: result[0]})
       }
