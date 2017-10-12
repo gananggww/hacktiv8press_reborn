@@ -9,11 +9,11 @@ Ini Livecode buat blog dalam 4 jam pengerjaan client and server side
 
 Usage
 ======
-###Server
-..* nodemon app.js
+### Server
+⋅⋅* nodemon app.js.
 
-###Client
-..* npm run dev
+### Client
+⋅⋅* npm run dev.
 
 API
 ======
