@@ -1,5 +1,6 @@
 <template>
   <fb-signin-button
+    class="ui facebook button"
     :params="fbSignInParams"
     @success="onSignInSuccess"
     @error="onSignInError">
@@ -8,6 +9,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   data () {
     return {
@@ -19,7 +21,25 @@ export default {
   },
   methods: {
     onSignInSuccess (response) {
-      console.log(response)
+      console.log('ini response FACEBOOK : ', response)
+      if (response.status === 'connected') {
+        localStorage.setItem('fbaccesstoken', response.authResponse.accessToken)
+        axios.get(`http://localhost:3000/users/login`, {
+          headers: {
+            fbaccesstoken: localStorage.getItem('fbaccesstoken')
+          }
+        })
+        .then(loug => {
+          console.log(loug)
+          localStorage.setItem('token', loug.data.token)
+          this.$router.push('/')
+        })
+        .catch(err => {
+          console.log(err)
+        })
+      } else {
+        console.log('salah')
+      }
     },
     onSignInError (error) {
       console.log('OH NOES', error)
