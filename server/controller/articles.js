@@ -1,17 +1,17 @@
-const mongoose = require('mongoose')
+const db = require('./model/articles')
 
-const articlesSchema = new mongoose.Schema({
-  title: String,
-  content: String,
-  mini_content: String,
-  pic: String,
-  author: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'users'
-  }
-}, {
-  timestamps: true
-});
-const Article = mongoose.model('Article', articlesSchema);
+const getall = (req, res) => {
 
-module.exports = Article
+}
+
+const getself = (req, res) => {
+
+}
+
+const remove = (req, res) => {
+
+}
+
+const edit = (req, res) => {
+
+}
