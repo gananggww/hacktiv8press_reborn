@@ -3,6 +3,12 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import vuex from 'vuex'
+import store from './vuex/store'
+import FBSignInButton from 'vue-facebook-signin-button'
+
+Vue.use(FBSignInButton)
+Vue.use(vuex)
 
 Vue.config.productionTip = false
 
@@ -10,6 +16,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
+  store,
   template: '<App/>',
   components: { App }
 })
